@@ -1,0 +1,105 @@
+{{ template "header" }}
+ 
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>Entradas</h2>   
+                        <h5>Crea, edita o elimina tus entradas. </h5>
+                       
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+            <hr />
+            <a href="/newentry" class="btn btn-primary">Crear nueva entrada</a>
+			<hr />
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             Entradas
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-entries">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Autor</th>
+                                            <th>Título</th>
+                                            <th>Fecha</th>
+											<th>Editar</td>
+                                           
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+										{{ range $a  := .Content }}
+                                        <tr class="odd gradeX">
+                                            	<td>{{.Id}}</td>
+											<td>	{{.Author}}</td>
+                                            	<td>{{.Title}}</td>
+                                            	<td>{{.Dateformat}}</td>
+											{{ if .Editable }}
+												<td style="text-align: center"><button onclick="editPost('{{.Id}}')" style="font-size: 11px;" class="btn btn-info personalize-btn">Editar</button></td> 
+											{{ else }}
+												<td></td> 
+											{{ end }}                                   
+                                        </tr>
+									{{ end }}
+                                     
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+ 
+        
+          
+                <!-- /. ROW  -->
+        </div>
+               
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+     <!-- DATA TABLE SCRIPTS -->
+    <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-entries').dataTable({
+			        "language": {
+			            "lengthMenu": "_MENU_ entradas por página",
+			            "zeroRecords": "Ningún resultado - lo sentimos",
+			            "info": "Mostrando página _PAGE_ de _PAGES_",
+			            "infoEmpty": "Entrada no encontrada",
+			            "infoFiltered": "(filtrado _MAX_ entradas totales)",
+						"search": "Buscar: ",
+			        }
+    				});
+					
+            });
+			function editPost(id) {
+				location.href = "http://localhost:8081/edit/" + id;
+			}
+    </script>
+         <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+    
+   
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Panel de publicaciones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./font-awesome.min.css" />
+    <link rel="stylesheet" href="./webfontkit/stylesheet.css" type="text/css" charset="utf-8" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .page-header {
+            font-family: "domoaregatonormal";
+            font-size: 52px;
+        }
+        body {
+            color: #FFF;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="page-header">
+    <h1>GoLangNinja.com <small>Panel de publicaciones</small></h1>
+</div>
+
+<!-- Registration Form - START -->
+ <div class="container" id="container1">
+        <div class="row centered-form">
+            <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-center">Escribe sus credenciales</h3>
+                    </div>
+                    <div class="panel-body">
+						<p style="color: red">{{ .Message }}</p>
+                        <form role="form" action="/login" method="POST">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="usuario" id="usuario" class="form-control input-sm" placeholder="Usuario">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Contraseña">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="submit" value="Acceder" class="btn btn-default btn-block">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<style>
+#container1 {
+    background-color: #e2dada;
+}
+
+.centered-form {
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.centered-form .panel {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+</style>
+<!-- Registration Form - END -->
+
+</div>
+
+</body>
+</html>
